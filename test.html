@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Non-Profit POC</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+    <h1>Test STUN</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-default" onclick="checkSTUN()">Check STUN</button>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+    var stunturncheck = require('stunturncheck');
+
+    function test() { alert("it works")}
+
+    function checkSTUN() {
+            stunturncheck({url: 'stun:stun.l.google.com:19302'}, function(err, res) { 
+                if (err) {
+                    console.error("some kind of error occurred");
+                    return;
+                }
+                if (res > 0) {
+                    console.info("a stun server could be reached and the local description");
+                    // contains srflx (for stun) or relay (for turn) candidates. 
+                } else {
+                    console.warn("stun server could not be reached, port may be blocked.");
+                }
+            });
+    }
+ 
+
+</script>
+
+</body>
+
+</html>

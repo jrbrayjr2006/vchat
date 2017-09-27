@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Non-Profit POC</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Simple POC</h1>
+
+    <div id="videos" class="row">
+      <div class="col-md-6">
+        <video id="localVideo" autoplay muted></video>
+      </div>
+      <div class="col-md-6">
+        <video id="remoteVideo" autoplay></video>
+      </div>
+      <input type="hidden" id="room" name="room" value="" />
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success" onclick="maybeStart()">Start Call</button>
+        <button class="btn btn-danger" onclick="hangup()">Hang Up</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/lib/adapter.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
